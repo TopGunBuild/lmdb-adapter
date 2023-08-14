@@ -15,6 +15,8 @@ export class LMDBStorage implements TGStorage
             path       : path,
             // any options go here, we can turn on compression like this:
             compression: true,
+            dupSort    : true,
+            // encoding   : 'ordered-binary',
             ...(options || {})
         });
     }
