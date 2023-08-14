@@ -20,6 +20,18 @@
 
 `npm install topgun-lmdb-adapter`
 
+## How to use adapter
+
+```js
+import { TGServer } from 'topgun/server';
+import { createLMDBAdapter } from 'topgun-lmdb-adapter';
+
+const server = new TGServer({
+    adapter: createLMDBAdapter(),
+    port: 8765
+});
+```
+
 ## License
 
 MIT
