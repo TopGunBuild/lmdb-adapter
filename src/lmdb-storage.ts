@@ -82,7 +82,7 @@ export class LMDBStorage implements TGStorage
         }
         else
         {
-            for (let { key, value } of this.db.getRange(options))
+            for (const { key, value } of this.db.getRange(options))
             {
                 result[key] = value;
             }
