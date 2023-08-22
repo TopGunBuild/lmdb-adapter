@@ -1,5 +1,5 @@
 <h1 align="center" style="border-bottom: none;">💾 @topgunbuild/lmdb-adapter</h1>
-<h3>Standard <a href="https://github.com/TopGunBuild/topgun">TopGun</a> Graph Adapter interface for <a href="https://github.com/kriszyp/lmdb-js">LMDB</a></h3>
+<h3>Standard <a href="https://github.com/TopGunBuild/topgun">TopGun</a> Graph Adapter interface for <a href="https://github.com/kriszyp/lmdb-js">lmdb-js</a></h3>
 
 <p align="center">
   <a href="https://npm.im/@topgunbuild/lmdb-adapter">
