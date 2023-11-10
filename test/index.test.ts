@@ -30,7 +30,7 @@ describe('LMDB adapter test', () =>
         await storage.put('anotherKey', node);
 
         const readNodes = await storage.list({
-            prefix: 'key'
+            '*': 'key'
         });
 
         expect(Object.keys(readNodes).length).toBe(3);
@@ -44,8 +44,8 @@ describe('LMDB adapter test', () =>
         await storage.put('anotherKey', node);
 
         const readNodes = await storage.list({
-            prefix: 'key',
-            limit : 2
+            '*': 'key',
+            '%' : 2
         });
 
         expect(Object.keys(readNodes).length).toBe(2);
@@ -62,8 +62,8 @@ describe('LMDB adapter test', () =>
         await storage.db.committed;
 
         const readNodes = await storage.list({
-            start: '2019-06-20T00:00',
-            end  : '2019-06-22T00:00',
+            '>': '2019-06-20T00:00',
+            '<'  : '2019-06-22T00:00',
         });
 
         expect(Object.keys(readNodes).length).toBe(3);
