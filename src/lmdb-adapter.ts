@@ -1,5 +1,5 @@
-import { createGraphAdapter } from 'topgun/storage';
-import { TGGraphAdapterOptions, TGGraphAdapter } from 'topgun/types';
+import { TGGraphAdapter, TGGraphAdapterOptions } from '@topgunbuild/topgun/types';
+import { createGraphAdapter } from '@topgunbuild/topgun/storage';
 import { RootDatabaseOptions } from 'lmdb';
 import { LMDBStorage } from './lmdb-storage';
 

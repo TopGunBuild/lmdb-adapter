@@ -1,5 +1,5 @@
-import { TGStorage, StorageListOptions } from 'topgun/storage';
-import { TGGraphData, TGNode } from 'topgun/types';
+import { TGStorage } from '@topgunbuild/topgun/storage';
+import { TGGraphData, TGNode, TGOptionsGet } from '@topgunbuild/topgun/types';
 import { open, RootDatabaseOptions, RootDatabase, RangeOptions } from 'lmdb';
 
 export class LMDBStorage implements TGStorage
@@ -37,34 +37,33 @@ export class LMDBStorage implements TGStorage
         await this.db.put(key, value);
     }
 
-    list(options: StorageListOptions): Promise<TGGraphData>
+    list(options: TGOptionsGet): Promise<TGGraphData>
     {
         const result: TGGraphData = {};
+        const rangeOptions: RangeOptions = {};
 
-        if (options.prefix)
+        if (options['>'])
         {
-            const rangeOptions: RangeOptions = {};
+            rangeOptions.start = options['>'];
+        }
+        if (options['<'])
+        {
+            rangeOptions.end = options['<'];
+        }
+        if (typeof options['-'] === 'boolean')
+        {
+            rangeOptions.reverse = options['-'];
+        }
 
-            if (options.start)
-            {
-                rangeOptions.start = options.start;
-            }
-            if (options.end)
-            {
-                rangeOptions.end = options.end;
-            }
-            if (typeof options.reverse === 'boolean')
-            {
-                rangeOptions.reverse = options.reverse;
-            }
+        if (options['*'])
+        {
+            const filterByPrefix = ({ key }) => key.startsWith(options['*']);
 
-            const filterByPrefix = ({ key }) => key.startsWith(options.prefix);
-
-            if (options.limit)
+            if (options['%'])
             {
                 this.db.getRange(rangeOptions)
                     .filter(filterByPrefix)
-                    .slice(0, options.limit)
+                    .slice(0, options['%'])
                     .forEach(({ key, value }) =>
                     {
                         result[key] = value;
@@ -82,7 +81,12 @@ export class LMDBStorage implements TGStorage
         }
         else
         {
-            for (const { key, value } of this.db.getRange(options))
+            if (options['%'])
+            {
+                rangeOptions.limit = options['%'];
+            }
+
+            for (const { key, value } of this.db.getRange(rangeOptions))
             {
                 result[key] = value;
             }

@@ -47,7 +47,7 @@
     "homepage": "https://github.com/TopGunBuild/lmdb-adapter#readme",
     "dependencies": {
         "lmdb": "^2.8.4",
-        "topgun": "^1.5.17"
+        "@topgunbuild/topgun": "^0.0.8"
     },
     "devDependencies": {
         "@types/jest": "^29.5.0",
