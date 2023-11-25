@@ -46,7 +46,7 @@
     },
     "homepage": "https://github.com/TopGunBuild/lmdb-adapter#readme",
     "dependencies": {
-        "@topgunbuild/topgun": "^0.0.8",
+        "@topgunbuild/topgun": "^0.0.16",
         "lmdb": "^2.8.4"
     },
     "devDependencies": {
