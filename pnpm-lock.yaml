@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@topgunbuild/topgun':
-    specifier: ^0.0.8
-    version: 0.0.8
+    specifier: ^0.0.16
+    version: 0.0.16
   lmdb:
     specifier: ^2.8.4
     version: 2.8.4
@@ -1280,6 +1280,10 @@ packages:
     resolution: {integrity: sha512-5t0A8OG3TnYITWsnNivkX793gJ1r+0u3d+UV5gIQFMoXp2hJ7e+CNOLO5Pw1T5vnzE58YZwYCifEhKNjQ1e+Sw==}
     dev: false
 
+  /@topgunbuild/buffer@0.0.2:
+    resolution: {integrity: sha512-wd1s4kxkAmFnfHNB7lNpzcXBi3CxS0Y7vuSgQiJj3NyjGcUzvv95uEIK04n9TvbRHz/Fje772P50+f1+mWk/Lw==}
+    dev: false
+
   /@topgunbuild/jsonwebtoken@0.0.3:
     resolution: {integrity: sha512-S/RRyfDqFGJ/j4zjvZIhkyDWkAmLuDjPKC9o3W1uMKpzUQ98ShRzDSn3lLxEPx9MpcLSbYp8zEXcsBaslgcp9w==}
     dependencies:
@@ -1303,11 +1307,11 @@ packages:
     resolution: {integrity: sha512-yy/8IOA+wFImoELxLgleRqDLk00dyfnmAFfRqm9g/pLwXcaeh4xW2trqjFxamXp/VPF031OIMuY3Oz965VJEJw==}
     dev: false
 
-  /@topgunbuild/topgun@0.0.8:
-    resolution: {integrity: sha512-413gl8a/nYkh4KtDM2c932Yc11K6tYaTOdXfXoGcHO6Y7hzya9wZ/2esCsG7Db5PhYsUatBo+Ql+WB5lqqzjgg==}
+  /@topgunbuild/topgun@0.0.16:
+    resolution: {integrity: sha512-m0zwcHM5RhiUDcadSwYu/Ylxl8G/OceMgRB9wjpbPH+oHkYZeUwpfJy0gRqDFQcoOf3Gqf6Q5OwbAIS2+UevXg==}
     dependencies:
       '@topgunbuild/async-stream-emitter': 0.0.1
-      '@topgunbuild/buffer': 0.0.1
+      '@topgunbuild/buffer': 0.0.2
       '@topgunbuild/socket': 0.0.5
       '@topgunbuild/textencoder': 0.0.1
       '@topgunbuild/typed': 0.1.0
