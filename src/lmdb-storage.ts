@@ -16,6 +16,7 @@ export class LMDBStorage implements TGStorage
             // any options go here, we can turn on compression like this:
             compression: true,
             dupSort    : true,
+            pageSize   : 8192,
             // encoding   : 'ordered-binary',
             ...(options || {})
         });
@@ -39,7 +40,7 @@ export class LMDBStorage implements TGStorage
 
     list(options: TGOptionsGet): Promise<TGGraphData>
     {
-        const result: TGGraphData = {};
+        const result: TGGraphData        = {};
         const rangeOptions: RangeOptions = {};
 
         if (options['>'])
