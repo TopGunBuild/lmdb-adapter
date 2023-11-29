@@ -35,7 +35,14 @@ export class LMDBStorage implements TGStorage
 
     async put(key: string, value: TGNode): Promise<void>
     {
-        await this.db.put(key, value);
+        if (value)
+        {
+            await this.db.put(key, value);
+        }
+        else
+        {
+            await this.db.remove(key);
+        }
     }
 
     list(options: TGOptionsGet): Promise<TGGraphData>
